@@ -31,9 +31,12 @@ public class AccountController {
     }
 
     @GetMapping("/{accountNumber}/balance")
-    public ResponseEntity<Map<String, BigDecimal>> getBalance(@PathVariable String accountNumber) {
+    public ResponseEntity<Map<String, Object>> getBalance(@PathVariable String accountNumber) {
         BigDecimal balance = accountService.getBalance(accountNumber);
-        return ResponseEntity.ok(Map.of("accountNumber", accountNumber, "balance", balance));
+        Map<String, Object> response = new java.util.HashMap<>();
+        response.put("accountNumber", accountNumber);
+        response.put("balance", balance);
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping("/{accountNumber}/status")

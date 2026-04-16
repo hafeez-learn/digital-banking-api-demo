@@ -36,7 +36,6 @@ public class AccountServiceTest {
         testAccount.setNric("S123456789");
         testAccount.setBalance(BigDecimal.valueOf(1000.00));
         testAccount.setStatus(Account.AccountStatus.ACTIVE);
-        testAccount.setCreatedAt(LocalDateTime.now());
     }
 
     @Test

@@ -10,7 +10,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -39,7 +38,6 @@ public class TransactionServiceTest {
         testTransaction.setAmount(BigDecimal.valueOf(100.00));
         testTransaction.setType(Transaction.TransactionType.TRANSFER);
         testTransaction.setStatus(Transaction.TransactionStatus.COMPLETED);
-        testTransaction.setCreatedAt(LocalDateTime.now());
     }
 
     @Test
@@ -91,7 +89,6 @@ public class TransactionServiceTest {
         txn1.setAmount(BigDecimal.valueOf(50.00));
         txn1.setType(Transaction.TransactionType.TRANSFER);
         txn1.setStatus(Transaction.TransactionStatus.COMPLETED);
-        txn1.setCreatedAt(LocalDateTime.now());
 
         Transaction txn2 = new Transaction();
         txn2.setTransactionRef("TXN002");
@@ -100,7 +97,6 @@ public class TransactionServiceTest {
         txn2.setAmount(BigDecimal.valueOf(75.00));
         txn2.setType(Transaction.TransactionType.TRANSFER);
         txn2.setStatus(Transaction.TransactionStatus.COMPLETED);
-        txn2.setCreatedAt(LocalDateTime.now());
 
         when(transactionRepository.findByFromAccountOrToAccountOrderByCreatedAtDesc("ACC123456789", "ACC123456789"))
             .thenReturn(Arrays.asList(txn1, txn2));
