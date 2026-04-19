@@ -15,6 +15,8 @@ public class TransferRequest {
     @DecimalMin(value = "0.01", message = "Amount must be greater than 0")
     private BigDecimal amount;
 
+    private String description;  // Optional transfer description
+
     // Getters and Setters
     public String getFromAccount() { return fromAccount; }
     public void setFromAccount(String fromAccount) { this.fromAccount = fromAccount; }
@@ -22,4 +24,6 @@ public class TransferRequest {
     public void setToAccount(String toAccount) { this.toAccount = toAccount; }
     public BigDecimal getAmount() { return amount; }
     public void setAmount(BigDecimal amount) { this.amount = amount; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 }
